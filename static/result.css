@@ -1,0 +1,156 @@
+/* Reset basic styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: linear-gradient(135deg, #4facfe, #00f2fe); /* Blue gradient */
+    color: #5f5f5f;
+    line-height: 1.6;
+    padding: 20px;
+  }
+  
+  /* 🔹 Container */
+  .container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* 🔹 Headings */
+  h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #0056b3; /* Darker blue for better contrast */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    margin-top: 20px;
+    color: #0056b3;
+  }
+  
+  /* 🔹 Forms */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  select {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccd0d5;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  /* 🔹 Fieldset */
+  fieldset {
+    border: 1px solid #ccd0d5;
+    border-radius: 4px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+  }
+  
+  legend {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 0 10px;
+    margin-bottom: 10px;
+  }
+  
+  .checkbox-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 400;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+    vertical-align: middle;
+  }
+  
+  /* 🔹 Submit Button */
+  input[type="submit"] {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #218838;
+  }
+  
+  /* 🔹 Schemes Display */
+  ul {
+    list-style: none;
+    margin-top: 15px;
+  }
+  
+  li {
+    background: #e3f2fd; /* Soft blue */
+    border-left: 6px solid #00aaff; /* Bright blue */
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    text-align: left;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  li:hover {
+    transform: scale(1.02);
+    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* 🔹 Scheme Links */
+  a {
+    display: inline-block;
+    background: #4facfe;
+    color: white;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  a:hover {
+    background: #007bff;
+  }
+  
+  /* 🔹 Mobile Optimization */
+  @media (max-width: 600px) {
+    .container {
+      width: 90%;
+      padding: 20px;
+    }
+  
+    a {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  
