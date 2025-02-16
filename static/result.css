@@ -1,156 +1,175 @@
 /* Reset basic styles */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background: linear-gradient(135deg, #4facfe, #00f2fe); /* Blue gradient */
-    color: #5f5f5f;
-    line-height: 1.6;
-    padding: 20px;
-  }
-  
-  /* 🔹 Container */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298); /* Matching blue gradient */
+  color: #fff;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* 🔹 Container */
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.1); /* Transparent background with blur */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease-in-out;
+}
+
+.container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* 🔹 Headings */
+h1 {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 20px;
+  color: #ffcc00; /* Matching golden yellow */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔹 Forms */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #f8f9fa;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+input:focus,
+select:focus {
+  border-color: #ffcc00;
+  box-shadow: 0 0 6px rgba(255, 204, 0, 0.5);
+  transform: scale(1.02);
+}
+
+/* 🔹 Fieldset */
+fieldset {
+  border: 2px solid #ffcc00;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+legend {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffcc00;
+}
+
+/* Checkbox Styles */
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 400;
+  color: #f8f9fa;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.2);
+}
+
+/* 🔹 Submit Button */
+input[type="submit"] {
+  background-color: #ffcc00;
+  color: #333;
+  border: none;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover {
+  background-color: #ffdb4d;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(255, 204, 0, 0.5);
+}
+
+/* 🔹 Schemes Display */
+ul {
+  list-style: none;
+  margin-top: 15px;
+}
+
+li {
+  background: rgba(255, 255, 255, 0.1); /* Light transparent background */
+  border-left: 6px solid #ffcc00;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  text-align: left;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  color: #fff;
+}
+
+li:hover {
+  transform: scale(1.02);
+  box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔹 Scheme Links */
+a {
+  display: inline-block;
+  background: #ffcc00;
+  color: #333;
+  text-decoration: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  margin-top: 10px;
+}
+
+a:hover {
+  background: #ffdb4d;
+  transform: scale(1.05);
+}
+
+/* 🔹 Mobile Optimization */
+@media (max-width: 600px) {
   .container {
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 30px;
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-  }
-  
-  /* 🔹 Headings */
-  h1 {
-    text-align: center;
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #0056b3; /* Darker blue for better contrast */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2 {
-    margin-top: 20px;
-    color: #0056b3;
-  }
-  
-  /* 🔹 Forms */
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  label {
-    margin-bottom: 5px;
-    font-weight: 600;
-  }
-  
-  input[type="text"],
-  input[type="number"],
-  select {
-    padding: 12px;
-    margin-bottom: 20px;
-    border: 1px solid #ccd0d5;
-    border-radius: 4px;
-    font-size: 16px;
-  }
-  
-  /* 🔹 Fieldset */
-  fieldset {
-    border: 1px solid #ccd0d5;
-    border-radius: 4px;
-    padding: 15px 20px;
-    margin-bottom: 20px;
-  }
-  
-  legend {
-    font-size: 18px;
-    font-weight: 600;
-    padding: 0 10px;
-    margin-bottom: 10px;
-  }
-  
-  .checkbox-group label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: 400;
-  }
-  
-  input[type="checkbox"] {
-    margin-right: 10px;
-    transform: scale(1.2);
-    vertical-align: middle;
-  }
-  
-  /* 🔹 Submit Button */
-  input[type="submit"] {
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    padding: 15px;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  input[type="submit"]:hover {
-    background-color: #218838;
-  }
-  
-  /* 🔹 Schemes Display */
-  ul {
-    list-style: none;
-    margin-top: 15px;
-  }
-  
-  li {
-    background: #e3f2fd; /* Soft blue */
-    border-left: 6px solid #00aaff; /* Bright blue */
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 6px;
-    text-align: left;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
-  }
-  
-  li:hover {
-    transform: scale(1.02);
-    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* 🔹 Scheme Links */
-  a {
-    display: inline-block;
-    background: #4facfe;
-    color: white;
-    text-decoration: none;
-    padding: 12px 18px;
-    border-radius: 6px;
-    font-size: 15px;
-    font-weight: bold;
-    transition: background 0.3s ease;
-    margin-top: 10px;
-  }
-  
-  a:hover {
-    background: #007bff;
-  }
-  
-  /* 🔹 Mobile Optimization */
-  @media (max-width: 600px) {
-    .container {
       width: 90%;
       padding: 20px;
-    }
-  
-    a {
+  }
+
+  a {
       width: 100%;
       text-align: center;
-    }
   }
-  
+}
