@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Favorites</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Your Favorite Schemes</h1>
+    {% if favorites %}
+      <ul>
+        {% for fav in favorites %}
+          <li>
+            {{ fav }}
+            <a href="{{ url_for('remove_favorite', scheme_name=fav) }}" style="color: red;">Remove</a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No favorites added yet.</p>
+    {% endif %}
+    <a href="{{ url_for('results', page=1) }}">Back to Results</a>
+  </div>
+</body>
+</html>
