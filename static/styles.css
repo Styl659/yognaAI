@@ -3,37 +3,39 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* Body Styling */
+/* Background Styling */
 body {
-  background: linear-gradient(to right, #4facfe, #00f2fe);
-  color: #333;
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  background-size: cover;
+  background-attachment: fixed;
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Ensures full height */
+  min-height: 100vh;
   padding: 20px;
-  overflow-y: auto; /* Enables scrolling if needed */
+  overflow-y: auto;
 }
 
 /* Container */
 .container {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.1);
   padding: 25px;
   border-radius: 12px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
   width: 100%;
-  max-width: 460px; /* Slightly wider for better layout */
+  max-width: 480px;
   text-align: center;
-  margin: 20px 0; /* Adds spacing for small screens */
+  backdrop-filter: blur(10px);
 }
 
 /* Title */
 h1 {
-  color: #0056b3; /* Slightly darker blue for better contrast */
-  font-size: 24px; /* Improved visibility */
+  color: #f8f9fa;
+  font-size: 26px;
   margin-bottom: 15px;
   font-weight: bold;
 }
@@ -44,7 +46,7 @@ label {
   text-align: left;
   font-weight: bold;
   margin-top: 12px;
-  color: #222; /* Darker text for readability */
+  color: #f8f9fa;
 }
 
 /* Inputs and Select */
@@ -64,24 +66,24 @@ select {
 /* Input Focus Effect */
 input:focus,
 select:focus {
-  border-color: #007bff;
-  box-shadow: 0px 0px 6px rgba(0, 123, 255, 0.5);
+  border-color: #ffcc00;
+  box-shadow: 0px 0px 6px rgba(255, 204, 0, 0.5);
   transform: scale(1.02);
 }
 
 /* Checkbox Group */
 fieldset {
-  border: 2px solid #007bff;
+  border: 2px solid #ffcc00;
   border-radius: 8px;
   padding: 14px;
   margin-top: 15px;
   text-align: left;
+  color: #f8f9fa;
 }
 
-/* Checkbox Group Legend */
 legend {
   font-weight: bold;
-  color: #007bff;
+  color: #ffcc00;
   font-size: 16px;
 }
 
@@ -101,8 +103,8 @@ legend {
 
 /* Submit Button */
 input[type="submit"] {
-  background: #007bff;
-  color: white;
+  background: #ffcc00;
+  color: #333;
   border: none;
   padding: 14px;
   font-size: 16px;
@@ -114,27 +116,19 @@ input[type="submit"] {
   transition: all 0.3s ease-in-out;
 }
 
-/* Button Hover Effect */
 input[type="submit"]:hover {
-  background: #0056b3;
+  background: #ffdb4d;
   transform: scale(1.05);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 4px 10px rgba(255, 204, 0, 0.5);
 }
 
 /* Responsive Design */
 @media (max-width: 500px) {
   .container {
-    max-width: 90%;
-    padding: 18px;
+      max-width: 90%;
+      padding: 18px;
   }
-
   h1 {
-    font-size: 20px;
-  }
-
-  input[type="text"],
-  input[type="number"],
-  select {
-    padding: 10px;
+      font-size: 22px;
   }
 }
