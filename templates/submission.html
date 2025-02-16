@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Your Schemes</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='chatbot.css') }}">
 </head>
 <body>
   <div class="container">
@@ -26,7 +27,6 @@
             <strong>{{ scheme.scheme_name }}</strong><br>
             {{ scheme.info }}<br>
             <a href="{{ scheme.link }}" target="_blank">More Info</a>
-            <!-- Favorite/Remove Favorite link -->
             {% if scheme.scheme_name in favorites %}
               <a href="{{ url_for('remove_favorite', scheme_name=scheme.scheme_name, page=page) }}" style="color: red;">Remove from Favorites</a>
             {% else %}
@@ -36,7 +36,6 @@
         {% endfor %}
       </ul>
       
-      <!-- Pagination Links -->
       <div class="pagination">
         {% if page > 1 %}
           <a href="{{ url_for('results', page=page-1) }}">Previous</a>
@@ -52,5 +51,18 @@
       <p>No matching schemes found.</p>
     {% endif %}
   </div>
+
+  <!-- Chatbot HTML -->
+  <button id="chat-toggle">💬</button>
+  <div id="chat-container">
+      <div id="chat-header">Chatbot</div>
+      <div id="chat-body"></div>
+      <div id="chat-input">
+          <input type="text" id="user-input" placeholder="Type a message..." />
+          <button onclick="sendMessage()">Send</button>
+      </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='chatbot.js') }}"></script>
 </body>
 </html>
