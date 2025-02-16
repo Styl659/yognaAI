@@ -2,21 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yogna AI</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <style>
+    #extra-options {
+      display: none;
+      overflow: hidden;
+      transition: max-height 0.4s ease-in-out;
+    }
+    .toggle-btn {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      width: 100%;
+      margin-top: 10px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .toggle-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <h1>Yogna AI</h1>
     <form action="/submit" method="POST">
+      
       <!-- Name -->
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" placeholder="Your name" required>
-      
+
       <!-- Age -->
       <label for="age">Age:</label>
       <input type="number" id="age" name="age" min="0" placeholder="Your age" required>
-      
+
       <!-- Gender -->
       <label for="gender">Gender:</label>
       <select id="gender" name="gender" required>
@@ -25,7 +49,7 @@
         <option value="female">Female</option>
         <option value="third">Other</option>
       </select>
-      
+
       <!-- Group -->
       <label for="group">Group:</label>
       <select id="group" name="group" required>
@@ -34,7 +58,7 @@
         <option value="adult">Adult</option>
         <option value="seniors">Senior</option>
       </select>
-      
+
       <!-- Income Group -->
       <label for="income">Income Group:</label>
       <select id="income" name="income" required>
@@ -44,50 +68,73 @@
         <option value="EWS">EWS</option>
         <option value="Above">Above</option>
       </select>
-      
-      <!-- Keyword Search -->
-      <label for="keyword">Keyword Search:</label>
-      <input type="text" id="keyword" name="keyword" placeholder="Enter keyword">
-      
-      <!-- Category Filter -->
-      <label for="category">Scheme Category:</label>
-      <select id="category" name="category">
-        <option value="All">All</option>
-        <option value="Healthcare">Healthcare</option>
-        <option value="Education">Education</option>
-        <option value="Housing">Housing</option>
-        <option value="Agriculture">Agriculture</option>
-        <option value="Insurance">Insurance</option>
-        <option value="Employment">Employment</option>
-        <option value="Entrepreneurship">Entrepreneurship</option>
-        <option value="Pension">Pension</option>
-        <option value="Women & Child Welfare">Women & Child Welfare</option>
-      </select>
-      
-      <!-- Additional Details (Checkboxes) -->
-      <fieldset>
-        <legend>Additional Details</legend>
-        <div class="checkbox-group">
-          <label for="pregnant">
-            <input type="checkbox" id="pregnant" name="pregnant"> Pregnant
-          </label>
-          <label for="farmer">
-            <input type="checkbox" id="farmer" name="farmer"> Farmer
-          </label>
-          <label for="rural">
-            <input type="checkbox" id="rural" name="rural"> Rural
-          </label>
-          <label for="disabled">
-            <input type="checkbox" id="disabled" name="disabled"> Physically Disabled
-          </label>
-          <label for="sc">
-            <input type="checkbox" id="sc" name="sc"> Scheduled Caste/Tribe
-          </label>
-        </div>
-      </fieldset>
-      
+
+      <!-- Submit Button -->
       <input type="submit" value="Submit">
+
+      <!-- Slide Down Button -->
+      <button type="button" class="toggle-btn" onclick="toggleOptions()">Show More Options ⬇</button>
+
+      <!-- Extra Fields (Initially Hidden) -->
+      <div id="extra-options">
+        <!-- Additional Details (Checkboxes) -->
+        <fieldset>
+          <legend>Additional Details</legend>
+          <div class="checkbox-group">
+            <label for="pregnant">
+              <input type="checkbox" id="pregnant" name="pregnant"> Pregnant
+            </label>
+            <label for="farmer">
+              <input type="checkbox" id="farmer" name="farmer"> Farmer
+            </label>
+            <label for="rural">
+              <input type="checkbox" id="rural" name="rural"> Rural
+            </label>
+            <label for="disabled">
+              <input type="checkbox" id="disabled" name="disabled"> Physically Disabled
+            </label>
+            <label for="sc">
+              <input type="checkbox" id="sc" name="sc"> Scheduled Caste/Tribe
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- Keyword Search -->
+        <label for="keyword">Keyword Search:</label>
+        <input type="text" id="keyword" name="keyword" placeholder="Enter keyword">
+
+        <!-- Category Filter -->
+        <label for="category">Scheme Category:</label>
+        <select id="category" name="category">
+          <option value="All">All</option>
+          <option value="Healthcare">Healthcare</option>
+          <option value="Education">Education</option>
+          <option value="Housing">Housing</option>
+          <option value="Agriculture">Agriculture</option>
+          <option value="Insurance">Insurance</option>
+          <option value="Employment">Employment</option>
+          <option value="Entrepreneurship">Entrepreneurship</option>
+          <option value="Pension">Pension</option>
+          <option value="Women & Child Welfare">Women & Child Welfare</option>
+        </select>
+      </div>
+
     </form>
   </div>
+
+  <script>
+    function toggleOptions() {
+      let extraOptions = document.getElementById("extra-options");
+      let button = document.querySelector(".toggle-btn");
+
+      if (extraOptions.style.display === "none" || extraOptions.style.display === "") {
+        extraOptions.style.display = "block";
+        button.innerHTML = "Hide Options ⬆";
+      } else {
+        extraOptions.style.display = "none";
+        button.innerHTML = "Show More Options ⬇";
+      }
+    }
+  </script>
 </body>
 </html>
