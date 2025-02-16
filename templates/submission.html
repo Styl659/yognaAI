@@ -8,6 +8,16 @@
 <body>
   <div class="container">
     <h1>Hello {{ name }}!</h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flashes">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    
     {% if schemes %}
       <h2>Matching Schemes</h2>
       <ul>
@@ -16,9 +26,28 @@
             <strong>{{ scheme.scheme_name }}</strong><br>
             {{ scheme.info }}<br>
             <a href="{{ scheme.link }}" target="_blank">More Info</a>
+            <!-- Favorite/Remove Favorite link -->
+            {% if scheme.scheme_name in favorites %}
+              <a href="{{ url_for('remove_favorite', scheme_name=scheme.scheme_name, page=page) }}" style="color: red;">Remove from Favorites</a>
+            {% else %}
+              <a href="{{ url_for('favorite', scheme_name=scheme.scheme_name, page=page) }}">Add to Favorites</a>
+            {% endif %}
           </li>
         {% endfor %}
       </ul>
+      
+      <!-- Pagination Links -->
+      <div class="pagination">
+        {% if page > 1 %}
+          <a href="{{ url_for('results', page=page-1) }}">Previous</a>
+        {% endif %}
+        Page {{ page }} of {{ total_pages }}
+        {% if page < total_pages %}
+          <a href="{{ url_for('results', page=page+1) }}">Next</a>
+        {% endif %}
+      </div>
+      <br>
+      <a href="{{ url_for('show_favorites') }}">View Favorites</a>
     {% else %}
       <p>No matching schemes found.</p>
     {% endif %}
