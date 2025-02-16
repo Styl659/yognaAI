@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for, session, flash
+import google.generativeai as genai
+from flask import Flask, render_template, request, jsonify, redirect, url_for, session, flash
 import pandas as pd
 import os
 
@@ -194,7 +195,6 @@ def remove_favorite():
     # Redirect back to the referring page if available.
     return redirect(request.referrer or url_for('results', page=1))
 
-
 @app.route('/results')
 def results():
     # Pagination setup.
@@ -221,6 +221,27 @@ def results():
 def show_favorites():
     favorites = session.get('favorites', [])
     return render_template('favorites.html', favorites=favorites)
+
+GEMINI_API_KEY = "AIzaSyAHreODy64L9ixePiddPPzNkWre_97n_Xs"
+genai.configure(api_key=GEMINI_API_KEY)
+
+@app.route("/")
+def home():
+    return render_template("index.html", name="User", schemes=[], favorites=[], page=1, total_pages=1)
+
+@app.route("/chatbot_api", methods=["POST"])
+def chatbot_api():
+    user_message = request.json.get("query", "")
+
+    # Use Gemini API to generate a response
+    try:
+        model = genai.GenerativeModel("gemini-pro")
+        response = model.generate_content(user_message)
+        bot_response = response.text if response.text else "I'm Yojna AI! Ask me about government schemes."
+    except Exception as e:
+        bot_response = "Sorry, I'm having trouble responding right now."
+
+    return jsonify({"reply": bot_response})
 
 if __name__ == '__main__':
     app.run(debug=True)
