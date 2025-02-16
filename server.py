@@ -136,7 +136,6 @@ def submit():
     except Exception as e:
         return f"Error loading database.xlsm: {e}"
 
-    # Filter matching schemes with additional debug output.
     matched_schemes = []
     for idx, row in df.iterrows():
         scheme_name = row.get("Scheme name", "No Name")
@@ -154,6 +153,7 @@ def submit():
             print(f"Scheme '{scheme_name}' filtered out by category.")
             continue
 
+        # Append the scheme without including the category.
         matched_schemes.append({
             "scheme_name": scheme_name,
             "info": row.get("Info", ""),
